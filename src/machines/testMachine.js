@@ -14,13 +14,13 @@ const testMachine = createMachine({
     },
     question_one: {
       on: {
-        CONITNUE: "question_two",
+        CONTINUE: "question_two",
         EXIT: "start",
       },
     },
     question_two: {
       on: {
-        CONITNUE: "question_three",
+        CONTINUE: "question_three",
         EXIT: "start",
       },
     },

@@ -1,9 +1,9 @@
 import Nav from "./Nav";
 
 function Welcome({ send }) {
-  function next() {
-    send("START");
-  }
+  // function next() {
+  //   send("START");
+  // }
   return (
     <>
       <h1>Welcome to the Javascript Quiz</h1>
@@ -13,12 +13,13 @@ function Welcome({ send }) {
         consequuntur totam cum illum dolore, deleniti, ab ullam quas ea
         accusantium odio quis.
       </p>
-      <nav className="navbar__container">
+      {/* <nav className="navbar__container">
         <button className="button__back">Back</button>
         <button onClick={next} className="button__next">
           START
         </button>
-      </nav>
+      </nav> */}
+      <Nav send={send} action={"START"} />
     </>
   );
 }
