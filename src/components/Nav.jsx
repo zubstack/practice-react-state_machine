@@ -1,7 +1,8 @@
 import "./Nav.css";
 
 function Nav({ action, send }) {
-  const isQuestion = action === "CONTINUE" || "FINISH";
+  const isQuestion = action === "CONTINUE" || action === "FINISH";
+  console.log("isQuestion", isQuestion);
 
   function next() {
     send(action);
@@ -11,7 +12,10 @@ function Nav({ action, send }) {
   }
   return (
     <nav className="navbar__container">
-      <button onClick={exit} className="button__exit">
+      <button
+        onClick={exit}
+        className={isQuestion ? "button__exit" : "button__exit--hidden"}
+      >
         EXIT
       </button>
       <button onClick={next} className="button__next">
