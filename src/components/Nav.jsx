@@ -19,7 +19,7 @@ function Nav({ action, send }) {
         EXIT
       </button>
       <button onClick={next} className="button__next">
-        START
+        {action}
       </button>
     </nav>
   );
