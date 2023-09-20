@@ -13,11 +13,11 @@
   background-color: rgb(73, 73, 73);
 }
 
-.button__back {
+.button__exit {
   background-color: rgb(208, 208, 208);
   color: rgb(3, 3, 3);
 }
 
-.button__back :hover {
+.button__exit :hover {
   background-color: rgb(183, 183, 183);
 }
