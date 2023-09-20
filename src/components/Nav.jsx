@@ -2,7 +2,6 @@ import "./Nav.css";
 
 function Nav({ action, send }) {
   const isQuestion = action === "CONTINUE" || action === "FINISH";
-  console.log("isQuestion", isQuestion);
 
   function next() {
     send(action);

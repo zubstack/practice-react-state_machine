@@ -9,9 +9,10 @@ const questions = [
     question: "What is the purpose of the Javascript 'localstorage' object?",
     options: [
       "To fetch data from a remote server.",
-      " To store data on the client-side browser.",
-      " To control the page's layout and styling.",
+      "To store data on the client-side browser.",
+      "To control the page's layout and styling.",
     ],
+    answerIndex: 1,
   },
   {
     number: 2,
@@ -21,15 +22,17 @@ const questions = [
       "To fetch data from a remote server using HTTP requests",
       "To fetch data from the browser's cache",
     ],
+    answerIndex: 1,
   },
   {
     number: 3,
     question: "What is 'callback hell' in JavaScript?",
     options: [
       "A popular design pattern for organizing callbacks",
-      "A situation where nested callbacks become difficult to manage due to excessive indentation",
       "A term used to describe functions without callback functions",
+      "A situation where nested callbacks become difficult to manage due to excessive indentation",
     ],
+    answerIndex: 2,
   },
 ];
 
