@@ -10,6 +10,10 @@ const testMachine = createMachine({
   },
   states: {
     start: {
+      entry: assign((context) => {
+        context.userAnswers = [];
+      }),
+
       on: {
         START: "question_one",
       },
