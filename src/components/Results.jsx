@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import Nav from "./Nav";
+import "./Results.css";
 
 function Results({ state, send }) {
   const { userAnswers, questions } = state.context;
@@ -28,11 +29,20 @@ function Results({ state, send }) {
   return (
     <>
       <h2>Results:</h2>
-      <ul>
-        <li>Goods:{counterTrue}</li>
-        <li>Bads:{counterFalse}</li>
-        <li>Not awsered:{counterNotAnswer}</li>
-      </ul>
+      <div className="results__container">
+        <p>
+          Goods:
+          <span>{counterTrue}</span>
+        </p>
+        <p>
+          Bads:
+          <span>{counterFalse}</span>
+        </p>
+        <p>
+          Not awsered:
+          <span>{counterNotAnswer}</span>
+        </p>
+      </div>
       <Nav send={send} action={"RETRY"} />
     </>
   );
