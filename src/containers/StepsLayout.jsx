@@ -38,7 +38,7 @@ const questions = [
 const correctAnswers = questions.map((question) => question.answerIndex);
 
 function StepsLayout({ state, send }) {
-  console.log("state.context", state.context);
+  // console.log("state.context", state.context);
   const render = () => {
     if (state.matches("start")) return <Welcome state={state} send={send} />;
     if (state.matches("question_one"))

@@ -9,7 +9,6 @@ function Results({ state, send, correctAnswers }) {
     }
     return answer === correctAnswers[index];
   });
-  console.log("userAnswers", userAnswers);
   let counterTrue = 0;
   let counterFalse = 0;
   let counterNotAnswer = 0;
