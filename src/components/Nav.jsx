@@ -1,10 +1,14 @@
 import "./Nav.css";
 
-function Nav({ action, send }) {
+function Nav({ action, send, currentValue }) {
   const isQuestion = action === "CONTINUE" || action === "FINISH";
 
   function next() {
-    send(action);
+    if (isQuestion) {
+      send(action, { newAnswer: currentValue });
+    } else {
+      send(action);
+    }
   }
   function exit() {
     send("EXIT");

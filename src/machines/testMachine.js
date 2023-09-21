@@ -1,10 +1,12 @@
-import { createMachine } from "xstate";
+import { createMachine, assign } from "xstate";
 
 const testMachine = createMachine({
+  predictableActionArguments: true,
+
   id: "test_machine",
   initial: "start",
   context: {
-    retries: 0,
+    userAnswers: [],
   },
   states: {
     start: {
@@ -14,19 +16,34 @@ const testMachine = createMachine({
     },
     question_one: {
       on: {
-        CONTINUE: "question_two",
+        CONTINUE: {
+          target: "question_two",
+          actions: assign((context, event) =>
+            context.userAnswers.push(event.newAnswer)
+          ),
+        },
         EXIT: "start",
       },
     },
     question_two: {
       on: {
-        CONTINUE: "question_three",
+        CONTINUE: {
+          target: "question_three",
+          actions: assign((context, event) =>
+            context.userAnswers.push(event.newAnswer)
+          ),
+        },
         EXIT: "start",
       },
     },
     question_three: {
       on: {
-        FINISH: "results",
+        FINISH: {
+          target: "results",
+          actions: assign((context, event) =>
+            context.userAnswers.push(event.newAnswer)
+          ),
+        },
         EXIT: "start",
       },
     },

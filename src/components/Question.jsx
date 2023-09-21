@@ -36,7 +36,7 @@ function Question({ send, number, questions }) {
         ))}
       </div>
 
-      <Nav send={send} action={action} />
+      <Nav send={send} action={action} currentValue={currentValue} />
     </>
   );
 }
