@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-import { useEffect, useState } from "react";
 import Question from "../components/Question";
 import Results from "../components/Results";
 import Welcome from "../components/Welcome";
-import { fetchQuestions } from "../utils/api";
 
 const questions = [
   {
@@ -40,13 +38,6 @@ const questions = [
 const correctAnswers = questions.map((question) => question.answerIndex);
 
 function StepsLayout({ state, send }) {
-  // const [res, setRes] = useState("");
-  // useEffect(() => {
-  //   fetchQuestions().then((response) => {
-  //     setRes(response);
-  //   });
-  // }, []);
-  // console.log("res", res);
   console.log("state.context", state.context);
   const render = () => {
     if (state.matches("start")) return <Welcome state={state} send={send} />;

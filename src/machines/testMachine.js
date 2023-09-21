@@ -1,4 +1,35 @@
 import { createMachine, assign } from "xstate";
+import { fetchQuestions } from "../utils/api";
+
+const fillQuestions = {
+  initial: "loading",
+  states: {
+    loading: {
+      invoke: {
+        id: "getQuestions",
+        src: () => fetchQuestions,
+        onDone: {
+          target: "success",
+          actions: assign({
+            questions: (context, event) => event.data,
+          }),
+        },
+        onError: {
+          target: "failure",
+          actions: assign({
+            error: "Failure while fetching request",
+          }),
+        },
+      },
+    },
+    success: {},
+    failure: {
+      on: {
+        RETRY: { target: "loading" },
+      },
+    },
+  },
+};
 
 const testMachine = createMachine({
   predictableActionArguments: true,
@@ -7,6 +38,8 @@ const testMachine = createMachine({
   initial: "start",
   context: {
     userAnswers: [],
+    questions: [],
+    error: "",
   },
   states: {
     start: {
@@ -17,6 +50,7 @@ const testMachine = createMachine({
       on: {
         START: "question_one",
       },
+      ...fillQuestions,
     },
     question_one: {
       on: {
