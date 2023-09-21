@@ -36,6 +36,11 @@ const questions = [
   },
 ];
 
+// const check = userAnswers.map(
+//   (answer, index) => answer === correctAnswers[index]
+// );
+const correctAnswers = questions.map((question) => question.answerIndex);
+
 function StepsLayout({ state, send }) {
   console.log("state.context", state.context);
   const render = () => {
@@ -52,7 +57,10 @@ function StepsLayout({ state, send }) {
       return (
         <Question questions={questions} number={3} state={state} send={send} />
       );
-    if (state.matches("results")) return <Results state={state} send={send} />;
+    if (state.matches("results"))
+      return (
+        <Results state={state} send={send} correctAnswers={correctAnswers} />
+      );
   };
   return <>{render()}</>;
 }

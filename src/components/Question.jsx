@@ -7,7 +7,7 @@ function Question({ send, number, questions }) {
   const lastQuestion = number === questions.length;
   const action = lastQuestion ? "FINISH" : "CONTINUE";
   const questionIndex = number - 1;
-  const [currentValue, setCurrentValue] = useState(null);
+  const [currentValue, setCurrentValue] = useState("*");
   if (!currentValue) {
     console.log("Not answered");
   } else {
