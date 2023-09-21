@@ -2,8 +2,8 @@
 import Nav from "./Nav";
 import "./Results.css";
 
-function Results({ state, send }) {
-  const { userAnswers, questions } = state.context;
+function Results({ context, send }) {
+  const { userAnswers, questions } = context;
   const correctAnswers = questions.map((question) => question.answerIndex);
   const check = userAnswers.map((answer, index) => {
     if (answer === "*") {

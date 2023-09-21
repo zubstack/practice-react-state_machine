@@ -3,8 +3,8 @@ import { useState } from "react";
 import Nav from "./Nav";
 import "./Question.css";
 
-function Question({ state, send, number }) {
-  const { questions } = state.context;
+function Question({ context, send, number }) {
+  const { questions } = context;
   const questionIndex = number - 1;
   const currentQuestion = questions[questionIndex];
 
