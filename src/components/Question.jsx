@@ -3,27 +3,18 @@ import { useState } from "react";
 import Nav from "./Nav";
 import "./Question.css";
 
-function Question({ state, send, number, questions }) {
+function Question({ state, send, number }) {
+  const { questions } = state.context;
   const questionIndex = number - 1;
-  const currentQuestion = state.context.questions[questionIndex];
-  console.log("currentQuestion", currentQuestion);
+  const currentQuestion = questions[questionIndex];
 
   const lastQuestion = number === questions.length;
   const action = lastQuestion ? "FINISH" : "CONTINUE";
   const [currentValue, setCurrentValue] = useState("*");
-  // if (!currentValue) {
-  //   console.log("Not answered");
-  // } else {
-  //   console.log(
-  //     currentValue === questions[questionIndex].answerIndex
-  //       ? "Correct answer"
-  //       : "Incorrect"
-  //   );
-  // }
 
   return (
     <>
-      <h3>Question #{questions[questionIndex].number}</h3>
+      <h3>Question #{number}</h3>
       <div className="question__container">
         <h4>{currentQuestion.question}</h4>
         {currentQuestion.alternatives.map((option, index) => (

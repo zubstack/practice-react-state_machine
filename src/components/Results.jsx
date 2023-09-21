@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import Nav from "./Nav";
 
-function Results({ state, send, correctAnswers }) {
-  const { userAnswers } = state.context;
+function Results({ state, send }) {
+  const { userAnswers, questions } = state.context;
+  const correctAnswers = questions.map((question) => question.answerIndex);
   const check = userAnswers.map((answer, index) => {
     if (answer === "*") {
       return answer;
