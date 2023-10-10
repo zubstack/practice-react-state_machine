@@ -1,3 +1,21 @@
+# Get started
+
+- Primero correr el comando npm run start y en otra ventana de la consola npm run dev
+- Nota: Usamos nodemon
+
+## What does the app do?
+
+- Se trata de un booking machine que itera entre diferentes preguntas acerca de JS y el usuario tiene la posibilidad de escojer una entre varias opciones dadas.
+- Al final, el usuario puede visualizar cuantas preguntas respuesta fueron correctas, cuantas no y cuantas quedaron vacias.
+
+## Comming soon
+
+- Contador de tiempo
+- Dashboard
+- Agregar preguntas desde el dashboard
+- High score
+- Rating entre usuarios
+
 # State Properties
 
 States are fundamental components in systems and applications that follow a specific workflow. Each state is characterized by a set of properties that help manage its behavior and transition to other states. Here is a detailed description of these properties:
