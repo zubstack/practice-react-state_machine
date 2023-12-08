@@ -1,9 +1,9 @@
 import { useMachine } from "@xstate/react";
-import { testMachine } from "../machines/testMachine";
+import { quizMachine } from "../machines/quizMachine";
 import StepsLayout from "./StepsLayout";
 
 function QuizLayout() {
-  const [state, send] = useMachine(testMachine);
+  const [state, send] = useMachine(quizMachine);
 
   return (
     <>

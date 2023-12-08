@@ -4,7 +4,7 @@ import Results from "../components/Results";
 import Welcome from "../components/Welcome";
 
 function StepsLayout({ state, send }) {
-  // console.log("state.context", state.context);
+  console.log("state.context", state.context);
   const render = () => {
     if (state.matches("start")) return <Welcome send={send} />;
     if (state.matches("question_one"))
