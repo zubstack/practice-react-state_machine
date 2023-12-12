@@ -31,66 +31,60 @@ const fillQuestions = {
   },
 };
 
-const testMachine = createMachine({
-  predictableActionArguments: true,
-
-  id: "test_machine",
-  initial: "start",
-  context: {
-    userAnswers: [],
-    questions: [],
-    error: "",
-  },
-  states: {
+const createQuestionsMachine = () => {
+  const initialStates = {
     start: {
       entry: assign((context) => {
         context.userAnswers = [];
       }),
 
       on: {
-        START: "question_one",
+        // START: "question_one",
+        START: "results",
       },
       ...fillQuestions,
     },
-    question_one: {
-      on: {
-        CONTINUE: {
-          target: "question_two",
-          actions: assign((context, event) =>
-            context.userAnswers.push(event.newAnswer)
-          ),
-        },
-        EXIT: "start",
-      },
+  };
+
+  // Accede a las preguntas directamente desde el contexto
+  // const questionsContext = (context) => context.questions || [];
+  const questionsContext = (context) => context;
+
+  console.log("questionsContext", questionsContext());
+
+  // questionsContext().forEach((question, index) => {
+  //   initialStates[`question_${index + 1}`] = createQuestionState(question);
+  // });
+
+  // initialStates.nextQuestion = {
+  //   on: {
+  //     CONTINUE: {
+  //       target: (context, event) => `question_${event.nextQuestionNumber}`,
+  //     },
+  //     FINISH: "results",
+  //   },
+  // };
+
+  initialStates.results = {
+    on: {
+      RETRY: "start",
     },
-    question_two: {
-      on: {
-        CONTINUE: {
-          target: "question_three",
-          actions: assign((context, event) =>
-            context.userAnswers.push(event.newAnswer)
-          ),
-        },
-        EXIT: "start",
-      },
+  };
+
+  return createMachine({
+    predictableActionArguments: true,
+
+    id: "test_machine",
+    initial: "start",
+    context: {
+      userAnswers: [],
+      questions: [],
+      error: "",
     },
-    question_three: {
-      on: {
-        FINISH: {
-          target: "results",
-          actions: assign((context, event) =>
-            context.userAnswers.push(event.newAnswer)
-          ),
-        },
-        EXIT: "start",
-      },
-    },
-    results: {
-      on: {
-        RETRY: "start",
-      },
-    },
-  },
-});
+    states: initialStates,
+  });
+};
+
+const testMachine = createQuestionsMachine();
 
 export { testMachine };
