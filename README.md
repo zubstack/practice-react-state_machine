@@ -1,6 +1,6 @@
 # Get started
 
-Se esta trabajn do en conseguir la funcionalidad de estados dinamicos para un numero N de preguntas.
+Se dejara de trabjar con XState Machines ya que hubo un problema sin solucion, se trabajo entonces con Redux para el manejo de estados. El manejo de estados es otra vaina complicada de React
 
 ## What does the app do?
 
