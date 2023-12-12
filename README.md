@@ -1,7 +1,6 @@
 # Get started
 
-- Primero correr el comando npm run start y en otra ventana de la consola npm run dev
-- Nota: Usamos nodemon
+Se esta trabajn do en conseguir la funcionalidad de estados dinamicos para un numero N de preguntas.
 
 ## What does the app do?
 
